@@ -1,20 +1,23 @@
 /* Natecleans — traditional UK window cleaner look (sky blue + navy) */
 
 :root {
-  --navy-950: #0a1628;
-  --navy-900: #0c2340;
-  --navy-800: #123a66;
-  --blue-700: #1a5fb4;
-  --blue-600: #1e6fd9;
-  --blue-500: #2b7de9;
-  --sky-400: #4aa3f0;
-  --sky-300: #7ec0f8;
+  /* Badge-matched palette — navy → sky (#0B5FFF-ish) */
+  --navy-950: #062a6e;
+  --navy-900: #0b3d9e;
+  --navy-800: #0b5fff;
+  --blue-700: #0b5fff;
+  --blue-600: #1a7ef0;
+  --blue-500: #38b0f8;
+  --sky-500: #38b0f8;
+  --sky-400: #5ec8ff;
+  --sky-300: #8ed4fc;
+  --sky-200: #b0d8f8;
   --sky-100: #d6ebfc;
-  --sky-50: #eef6fd;
-  --ice: #f5faff;
+  --sky-50: #eef7fd;
+  --ice: #f7fbff;
   --white: #ffffff;
-  --grey-100: #e4edf5;
-  --grey-300: #b8c9db;
+  --grey-100: #e2eef8;
+  --grey-300: #a8c0d8;
   --grey-500: #5a6f86;
   --grey-700: #334155;
   --grey-900: #0f172a;
@@ -22,14 +25,16 @@
   --danger-bg: #fef2f2;
   --success: #0f766e;
   --success-bg: #ecfdf8;
-  --radius: 12px;
-  --radius-sm: 8px;
-  --shadow: 0 4px 24px rgba(12, 35, 64, 0.08);
-  --shadow-lg: 0 12px 40px rgba(12, 35, 64, 0.12);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --radius-lg: 28px;
+  --shadow: 0 4px 24px rgba(11, 95, 255, 0.08);
+  --shadow-lg: 0 12px 40px rgba(11, 95, 255, 0.12);
   --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
   --max: 68rem;
   --header-h: 4rem;
-  --focus: 0 0 0 3px rgba(43, 125, 233, 0.4);
+  --focus: 0 0 0 3px rgba(11, 95, 255, 0.35);
+  --wordmark-grad: linear-gradient(90deg, #03328e 0%, #0b5fff 42%, #38b0f8 100%);
 }
 
 *,
@@ -51,6 +56,10 @@ body {
   color: var(--grey-900);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
+}
+
+body.site-uk {
+  background: var(--ice);
 }
 
 img,
@@ -106,7 +115,56 @@ a:hover {
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--grey-100);
-  box-shadow: 0 1px 0 rgba(30, 111, 217, 0.06);
+  box-shadow: 0 1px 0 rgba(11, 95, 255, 0.06);
+}
+
+/* UK badge-style header — soft sky band */
+.site-uk .site-header {
+  background: linear-gradient(180deg, #8ed4fc 0%, #7ec8f8 100%);
+  border-bottom: 1px solid rgba(11, 95, 255, 0.12);
+  box-shadow: 0 2px 12px rgba(11, 95, 255, 0.12);
+}
+
+.site-uk .site-header .nav a {
+  color: rgba(6, 42, 110, 0.88);
+}
+
+.site-uk .site-header .nav a:hover {
+  color: var(--navy-950);
+}
+
+.site-uk .site-header .nav-phone {
+  color: var(--navy-950) !important;
+}
+
+.site-uk .site-header .logo {
+  color: var(--white);
+}
+
+.site-uk .site-header .logo:hover {
+  color: var(--white);
+}
+
+.site-uk .site-header .logo-mark {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--navy-800);
+  box-shadow: 0 2px 8px rgba(6, 42, 110, 0.18);
+}
+
+.site-uk .site-header .logo-text {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: var(--white);
+  -webkit-text-fill-color: var(--white);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+
+.site-uk .site-header .wordmark-sparkle {
+  display: none;
 }
 
 .header-inner {
@@ -137,13 +195,42 @@ a:hover {
   justify-content: center;
   width: 2.1rem;
   height: 2.1rem;
-  border-radius: 9px;
+  border-radius: 11px;
   background: linear-gradient(145deg, var(--sky-400), var(--navy-800));
   color: var(--white);
   font-size: 0.95rem;
   font-weight: 700;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(26, 95, 180, 0.35);
+  box-shadow: 0 2px 8px rgba(11, 95, 255, 0.35);
+}
+
+/* Navy → sky gradient wordmark (badge aesthetic) */
+.logo-text.logo-wordmark,
+.wordmark {
+  display: inline-block;
+  position: relative;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  background: var(--wordmark-grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.wordmark-sparkle {
+  position: absolute;
+  left: 0.72em;
+  top: 0.05em;
+  width: 0.55em;
+  height: 0.55em;
+  pointer-events: none;
+  background:
+    linear-gradient(#fff, #fff) center / 100% 2px no-repeat,
+    linear-gradient(#fff, #fff) center / 2px 100% no-repeat;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.9));
+  -webkit-text-fill-color: initial;
 }
 
 .nav {
@@ -174,6 +261,18 @@ a:hover {
   flex-shrink: 0;
 }
 
+.site-uk .site-header .btn-primary {
+  background: var(--white);
+  color: var(--navy-800);
+  box-shadow: 0 2px 10px rgba(6, 42, 110, 0.18);
+  border-color: transparent;
+}
+
+.site-uk .site-header .btn-primary:hover {
+  background: var(--ice);
+  color: var(--navy-950);
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -183,7 +282,7 @@ a:hover {
   min-height: 3rem;
   padding: 0.75rem 1.35rem;
   border: 2px solid transparent;
-  border-radius: var(--radius-sm);
+  border-radius: 999px;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
@@ -247,53 +346,106 @@ a:hover {
   color: var(--navy-950);
 }
 
-/* Hero — clear sky + soapy sparkle */
+/* Hero — badge airy sky + soft bubbles */
 .hero {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 70% 55% at 90% -10%, rgba(126, 192, 248, 0.55), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 10% 100%, rgba(43, 125, 233, 0.12), transparent 50%),
+    radial-gradient(ellipse 70% 55% at 90% -10%, rgba(142, 212, 252, 0.55), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 8% 100%, rgba(11, 95, 255, 0.1), transparent 50%),
     linear-gradient(165deg, #dceefc 0%, var(--sky-50) 35%, var(--white) 70%, var(--ice) 100%);
   padding: 3rem 0 3.75rem;
 }
 
-/* Soft sparkle accents (CSS-only) */
+/* Soft bubble accents (CSS-only fallback) */
 .hero::before,
 .hero::after {
   content: "";
   position: absolute;
   pointer-events: none;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(126, 192, 248, 0.35) 40%, transparent 70%);
-  opacity: 0.85;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.95) 0%, rgba(176, 216, 248, 0.45) 45%, rgba(142, 212, 252, 0.15) 70%, transparent 75%);
+  opacity: 0.9;
+  z-index: 0;
 }
 
 .hero::before {
-  width: 7rem;
-  height: 7rem;
-  top: 12%;
-  right: 8%;
+  width: 8rem;
+  height: 8rem;
+  top: 10%;
+  right: 6%;
   box-shadow:
-    -4rem 3rem 0 -2.2rem rgba(255, 255, 255, 0.7),
-    -1.5rem 5.5rem 0 -2.6rem rgba(126, 192, 248, 0.5);
+    -5rem 3.5rem 0 -2.4rem rgba(176, 216, 248, 0.55),
+    -1.8rem 6.5rem 0 -2.8rem rgba(142, 212, 252, 0.4),
+    -7rem 8rem 0 -3.2rem rgba(255, 255, 255, 0.55);
 }
 
 .hero::after {
-  width: 3.5rem;
-  height: 3.5rem;
-  bottom: 18%;
-  right: 22%;
-  opacity: 0.6;
+  width: 4rem;
+  height: 4rem;
+  bottom: 16%;
+  right: 20%;
+  opacity: 0.7;
   box-shadow:
-    5rem -2rem 0 -1rem rgba(255, 255, 255, 0.65),
-    2rem 3rem 0 -1.2rem rgba(74, 163, 240, 0.4);
+    5.5rem -2.5rem 0 -1.1rem rgba(255, 255, 255, 0.7),
+    2.2rem 3.5rem 0 -1.3rem rgba(94, 200, 255, 0.4),
+    -3rem -4rem 0 -1.5rem rgba(176, 216, 248, 0.35);
+}
+
+/* Explicit bubble / sparkle layer (HTML) — never covers content */
+.badge-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.badge-decor .bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.85) 0%, rgba(176, 216, 248, 0.4) 42%, rgba(142, 212, 252, 0.12) 68%, transparent 72%);
+  border: 1px solid rgba(176, 216, 248, 0.35);
+  opacity: 0.7;
+}
+
+.badge-decor .bubble-1 { width: 5.5rem; height: 5.5rem; top: 8%; right: 4%; }
+.badge-decor .bubble-2 { width: 3.2rem; height: 3.2rem; top: 38%; right: 18%; opacity: 0.55; }
+.badge-decor .bubble-3 { width: 4.2rem; height: 4.2rem; bottom: 12%; left: 6%; opacity: 0.5; }
+.badge-decor .bubble-4 { width: 2.4rem; height: 2.4rem; top: 18%; left: 12%; opacity: 0.45; }
+.badge-decor .bubble-5 { width: 1.8rem; height: 1.8rem; bottom: 28%; right: 8%; opacity: 0.5; }
+
+.badge-decor .spark {
+  position: absolute;
+  width: 0.85rem;
+  height: 0.85rem;
+  opacity: 0.65;
+  background:
+    linear-gradient(var(--sky-400), var(--sky-400)) center / 100% 2px no-repeat,
+    linear-gradient(var(--sky-400), var(--sky-400)) center / 2px 100% no-repeat;
+  filter: drop-shadow(0 0 3px rgba(94, 200, 255, 0.7));
+}
+
+.badge-decor .spark-1 { top: 14%; right: 28%; }
+.badge-decor .spark-2 { top: 52%; right: 10%; width: 0.65rem; height: 0.65rem; opacity: 0.5; }
+.badge-decor .spark-3 { bottom: 22%; left: 22%; width: 0.7rem; height: 0.7rem; }
+.badge-decor .spark-4 { top: 28%; left: 4%; width: 0.55rem; height: 0.55rem; opacity: 0.45; }
+
+@media (max-width: 539px) {
+  .badge-decor .bubble-1 { width: 3.5rem; height: 3.5rem; }
+  .badge-decor .bubble-3 { width: 2.8rem; height: 2.8rem; }
 }
 
 .hero-inner {
   position: relative;
   z-index: 1;
   max-width: 42rem;
+}
+
+.brand-wordmark {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 5vw, 2.35rem);
+  line-height: 1.1;
 }
 
 .eyebrow {
@@ -333,7 +485,7 @@ a:hover {
 }
 
 .hero h1 .shine {
-  background: linear-gradient(120deg, var(--navy-900) 0%, var(--blue-600) 45%, var(--sky-400) 55%, var(--navy-900) 100%);
+  background: linear-gradient(120deg, #03328e 0%, #0b5fff 40%, #38b0f8 55%, #03328e 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -409,6 +561,49 @@ a:hover {
   color: var(--navy-900);
 }
 
+/* Diamond line divider (badge) */
+.diamond-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: min(100%, 14rem);
+  margin: 0 0 1.5rem;
+  color: var(--sky-400);
+}
+
+.diamond-divider::before,
+.diamond-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sky-300), transparent);
+}
+
+.diamond-divider .diamond {
+  flex-shrink: 0;
+  width: 0.55rem;
+  height: 0.55rem;
+  background: var(--sky-400);
+  transform: rotate(45deg);
+  border-radius: 1px;
+  box-shadow: 0 0 0 3px rgba(142, 212, 252, 0.35);
+}
+
+.phone-with-diamonds {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.phone-with-diamonds .diamond {
+  width: 0.45rem;
+  height: 0.45rem;
+  background: var(--sky-400);
+  transform: rotate(45deg);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
 .section-intro {
   margin: 0 0 2rem;
   color: var(--grey-700);
@@ -426,17 +621,16 @@ a:hover {
 
 .card {
   background: var(--white);
-  border: 1px solid var(--grey-100);
-  border-radius: var(--radius);
+  border: 1.5px solid var(--sky-200);
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
   box-shadow: var(--shadow);
-  border-top: 3px solid var(--sky-400);
-  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
 .card:hover {
   box-shadow: var(--shadow-lg);
-  border-top-color: var(--blue-600);
+  border-color: var(--sky-400);
 }
 
 .section-alt .card {
@@ -500,8 +694,8 @@ a:hover {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 60% 80% at 100% 50%, rgba(74, 163, 240, 0.35), transparent 55%),
-    linear-gradient(135deg, var(--navy-950) 0%, var(--navy-800) 45%, var(--blue-700) 100%);
+    radial-gradient(ellipse 60% 80% at 100% 50%, rgba(94, 200, 255, 0.35), transparent 55%),
+    linear-gradient(135deg, var(--navy-950) 0%, var(--navy-800) 45%, var(--blue-600) 100%);
   color: var(--white);
   padding: 2.75rem 0;
 }
@@ -516,6 +710,36 @@ a:hover {
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 65%);
   pointer-events: none;
+}
+
+/* UK badge-style soft sky CTA */
+.site-uk .cta-band {
+  background:
+    radial-gradient(ellipse 50% 80% at 0% 50%, rgba(255, 255, 255, 0.55), transparent 50%),
+    radial-gradient(ellipse 40% 70% at 100% 30%, rgba(176, 216, 248, 0.7), transparent 55%),
+    linear-gradient(135deg, #d6ebfc 0%, #8ed4fc 45%, #5ec8ff 100%);
+  color: var(--navy-950);
+  border-block: 1px solid rgba(11, 95, 255, 0.12);
+}
+
+.site-uk .cta-band h2 {
+  color: var(--navy-950);
+}
+
+.site-uk .cta-band p {
+  opacity: 0.9;
+  color: var(--navy-900);
+}
+
+.site-uk .cta-band .btn-light {
+  background: var(--navy-800);
+  color: var(--white);
+  box-shadow: 0 4px 16px rgba(11, 95, 255, 0.3);
+}
+
+.site-uk .cta-band .btn-light:hover {
+  background: var(--navy-950);
+  color: var(--white);
 }
 
 .cta-band-inner {
@@ -548,10 +772,10 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 1.15rem;
-  padding: 1.5rem;
-  background: var(--ice);
-  border: 1px solid var(--grey-100);
-  border-radius: var(--radius);
+  padding: 1.65rem;
+  background: var(--white);
+  border: 1.5px solid var(--sky-200);
+  border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
 }
 
@@ -706,6 +930,17 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
+.site-uk .footer-brand .logo-wordmark,
+.site-uk .footer-brand strong.logo-wordmark {
+  background: linear-gradient(90deg, #8ed4fc 0%, #ffffff 55%, #5ec8ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-style: italic;
+  font-weight: 800;
+}
+
 .footer-brand p {
   margin: 0;
   font-size: 0.95rem;
@@ -793,8 +1028,8 @@ a:hover {
 .gallery-item figure {
   margin: 0;
   background: var(--sky-50);
-  border: 1px solid var(--grey-100);
-  border-radius: var(--radius);
+  border: 1.5px solid var(--sky-200);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow);
   height: 100%;
@@ -1006,11 +1241,10 @@ body.lightbox-open {
 .step-card {
   position: relative;
   background: var(--white);
-  border: 1px solid var(--grey-100);
-  border-radius: var(--radius);
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  border: 1.5px solid var(--sky-200);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
   box-shadow: var(--shadow);
-  border-top: 3px solid var(--sky-400);
 }
 
 .step-num {
@@ -1051,8 +1285,8 @@ body.lightbox-open {
 
 .faq-item {
   background: var(--white);
-  border: 1px solid var(--grey-100);
-  border-radius: var(--radius);
+  border: 1.5px solid var(--sky-200);
+  border-radius: var(--radius-lg);
   padding: 1.25rem 1.35rem;
   box-shadow: var(--shadow);
   border-left: 3px solid var(--sky-400);
@@ -1086,9 +1320,9 @@ body.lightbox-open {
 
 /* Featured service card (gutter clearing) */
 .card-featured {
-  border: 2px solid var(--sky-500, #0ea5e9);
-  background: linear-gradient(180deg, #f0f9ff 0%, #fff 55%);
-  box-shadow: 0 10px 28px rgba(14, 165, 233, 0.12);
+  border: 2px solid var(--sky-400);
+  background: linear-gradient(180deg, #f0f8ff 0%, #fff 55%);
+  box-shadow: 0 10px 28px rgba(11, 95, 255, 0.12);
   position: relative;
 }
 
@@ -1097,7 +1331,7 @@ body.lightbox-open {
   margin: 0 0 0.65rem;
   padding: 0.2rem 0.55rem;
   border-radius: 999px;
-  background: var(--navy-900, #0f172a);
+  background: linear-gradient(135deg, var(--navy-800), var(--sky-400));
   color: #fff;
   font-size: 0.72rem;
   font-weight: 600;

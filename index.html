@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="site-uk">
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -44,7 +44,19 @@
   <main id="main">
     <!-- Hero -->
     <section class="hero" id="top">
+      <div class="badge-decor" aria-hidden="true">
+        <span class="bubble bubble-1"></span>
+        <span class="bubble bubble-2"></span>
+        <span class="bubble bubble-3"></span>
+        <span class="bubble bubble-4"></span>
+        <span class="bubble bubble-5"></span>
+        <span class="spark spark-1"></span>
+        <span class="spark spark-2"></span>
+        <span class="spark spark-3"></span>
+        <span class="spark spark-4"></span>
+      </div>
       <div class="container hero-inner">
+        <p class="brand-wordmark wordmark" aria-hidden="true">Natecleans<span class="wordmark-sparkle"></span></p>
         <p class="eyebrow"><span class="eyebrow-sparkle" aria-hidden="true"></span> Gutters &amp; windows, done properly</p>
         <h1>Gutter clearing &amp; window cleaning across <span class="shine">Wrexham, Chester &amp; beyond</span></h1>
         <p class="hero-lead">Reliable gutter clearing and window cleaning for homes and businesses — plus fascias and solar panels. Free, no-obligation quotes.</p>
@@ -65,6 +77,7 @@
     <section class="section" id="services" aria-labelledby="services-heading">
       <div class="container">
         <h2 id="services-heading">Our services</h2>
+        <div class="diamond-divider" aria-hidden="true"><span class="diamond"></span></div>
         <p class="section-intro">Our core offer is <strong>gutter clearing</strong> and <strong>window cleaning</strong> — the jobs homes and businesses ask for most. We also wash fascias and clean solar panels, carefully and at fair prices.</p>
         <ul class="service-grid">
           <li class="card card-featured">
@@ -105,6 +118,7 @@
     <section class="section section-alt" id="areas" aria-labelledby="areas-heading">
       <div class="container">
         <h2 id="areas-heading">Areas we cover</h2>
+        <div class="diamond-divider" aria-hidden="true"><span class="diamond"></span></div>
         <p class="section-intro">Proudly serving homes and businesses across North Wales and the North West.</p>
         <ul class="areas-list">
           <li>Wrexham</li>
@@ -123,6 +137,7 @@
     <section class="section" id="gallery" aria-labelledby="gallery-heading">
       <div class="container">
         <h2 id="gallery-heading">Our work</h2>
+        <div class="diamond-divider" aria-hidden="true"><span class="diamond"></span></div>
         <p class="section-intro">Real jobs from around the local area — gutter clearing first, plus windows, fascias, conservatories and outdoor cleaning.</p>
         <ul class="gallery-grid">
           <li class="gallery-item">
@@ -202,8 +217,10 @@
           <h2 id="cta-heading">Ready for a free quote?</h2>
           <p>Give us a call — gutter clearing, windows or a full exterior tidy. We’re local, friendly and happy to discuss your property.</p>
         </div>
-        <a class="btn btn-light btn-lg" href="tel:+447805273715" aria-label="Call Natecleans on 07805 273715">
+        <a class="btn btn-light btn-lg phone-with-diamonds" href="tel:+447805273715" aria-label="Call Natecleans on 07805 273715">
+          <span class="diamond" aria-hidden="true"></span>
           Call 07805 273715
+          <span class="diamond" aria-hidden="true"></span>
         </a>
       </div>
     </section>
@@ -212,6 +229,7 @@
     <section class="section" id="enquiry" aria-labelledby="enquiry-heading">
       <div class="container form-wrap">
         <h2 id="enquiry-heading">Request a free quote</h2>
+        <div class="diamond-divider" aria-hidden="true"><span class="diamond"></span></div>
         <p class="section-intro">Fill in your details and we’ll get back to you as soon as we can. Fields marked with * are required.</p>
 
         <form
@@ -268,7 +286,7 @@
     <div class="container footer-inner">
       <div class="footer-brand">
         <span class="logo-mark" aria-hidden="true">N</span>
-        <strong>Natecleans</strong>
+        <strong class="logo-wordmark">Natecleans</strong>
         <p>Gutter clearing, window cleaning &amp; exterior cleaning across Wrexham, Chester and surrounding areas.</p>
       </div>
       <div class="footer-contact">
