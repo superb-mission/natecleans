@@ -48,7 +48,9 @@ Point form notifications to **ncdwindowcleaning@gmail.com** for both forms.
 2. **Form notifications** → **Email notification**
 3. Recipient: `ncdwindowcleaning@gmail.com` → save
 
-**Via API** (used at deploy time when `NETLIFY_AUTH_TOKEN` is available): create/update form notification hooks for both form IDs to that address. Never commit the token.
+**Via API** (used at deploy time when `NETLIFY_AUTH_TOKEN` is available): create hooks with `type: "email"`, `event: "submission_created"`, and `data.email` set to that address for each form ID. Never commit the token.
+
+Note: the site previously had `processing_settings.ignore_html_forms: true`, which blocks form detection — it must stay **false** (Forms enabled) or Netlify will not register forms on deploy.
 
 Netlify registers forms by scanning HTML on deploy — run a production deploy before expecting submissions.
 
