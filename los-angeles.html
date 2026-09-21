@@ -224,23 +224,22 @@
         <h2 id="enquiry-heading">Request a free solar quote</h2>
         <p class="section-intro">Fill in your details for residential or commercial solar panel cleaning. We’ll get back by email. Fields marked with * are required.</p>
 
-        <div id="thanks" class="thanks" hidden>
-          <p class="thanks-title">Thank you — your solar enquiry has been sent.</p>
-          <p>We’ll be in touch by email shortly. If you need to add panel details, you can send another message anytime.</p>
-        </div>
-
         <form
           id="enquiry-form"
           class="enquiry-form"
-          action="https://formsubmit.co/ncdwindowcleaning@gmail.com"
+          name="cindy-cleans-enquiry"
           method="POST"
+          action="/thanks-la.html"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          netlify
           novalidate
           aria-label="Cindy Cleans Los Angeles solar panel cleaning enquiry form"
         >
-          <input type="hidden" name="_subject" value="Cindy Cleans Los Angeles solar enquiry">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="">
-          <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="form-name" value="cindy-cleans-enquiry">
+          <p class="honey" aria-hidden="true">
+            <label>Don’t fill this out: <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
 
           <div class="field">
             <label for="name">Name <span class="req" aria-hidden="true">*</span></label>

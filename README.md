@@ -1,94 +1,76 @@
 # Natecleans — static landing page
 
-Mobile-first marketing site for **Natecleans** (UK window & exterior cleaning). Plain HTML, CSS and JavaScript — no build step.
+Mobile-first marketing site for **Natecleans** (UK **gutter clearing & window cleaning**, plus fascias and solar). Plain HTML, CSS and JavaScript — no build step. Sister page: **Cindy Cleans** (Los Angeles solar panel cleaning only).
 
 ## Files
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Single-page site (hero, services, areas, CTA, enquiry form, footer) |
+| `index.html` | Natecleans UK site (hero, services, areas, gallery, enquiry) |
+| `los-angeles.html` | **Cindy Cleans** — solar panel cleaning in Los Angeles / Greater LA |
+| `thanks.html` | Post-submit thank-you (Natecleans) |
+| `thanks-la.html` | Post-submit thank-you (Cindy Cleans) |
 | `styles.css` | Mobile-first styles (sky blue / navy) |
-| `los-angeles.html` | **Cindy Cleans** US landing page — solar panel cleaning in Los Angeles / Greater LA (form-only, no phone) |
-| `images/` | Optimised UK work photos (JPG + WebP) for the Natecleans gallery |
-| `script.js` | Client-side form validation + `#thanks` thank-you message |
-| `favicon.svg` | Simple branded favicon |
+| `images/` | Optimised UK work photos (JPG + WebP) — Natecleans gallery only |
+| `script.js` | Client form validation + UK gallery lightbox |
+| `favicon.svg` | Favicon |
 | `robots.txt` | Allow all crawlers |
 
 ## Preview locally
-
-From this folder:
 
 ```bash
 cd /workspace/natecleans
 python3 -m http.server 8080
 ```
 
-Then open [http://localhost:8080](http://localhost:8080) in your browser.
+Open http://localhost:8080
 
-Any static server works (`npx serve`, VS Code Live Server, etc.).
+## Enquiry forms (Netlify Forms)
 
-## Enquiry form (FormSubmit)
+Both forms use **Netlify Forms** (FormSubmit removed). Submissions land in the Netlify site dashboard and can email the business.
 
-The form POSTs to:
+| Page | Form `name` | Success page |
+|------|-------------|--------------|
+| `index.html` | `natecleans-enquiry` | `/thanks.html` |
+| `los-angeles.html` | `cindy-cleans-enquiry` | `/thanks-la.html` |
 
-`https://formsubmit.co/ncdwindowcleaning@gmail.com`
+Each form has: `method="POST"`, `data-netlify="true"`, unique `name`, hidden `form-name`, honeypot `bot-field`, plus `name` / `phone` / `address` / `message`.
 
-Hidden fields:
+`script.js` validates on the client; after Netlify accepts the POST, the visitor is redirected to the thanks page.
 
-- `_subject` — `Natecleans website enquiry`
-- `_template` — `table`
-- `_next` — set by JavaScript to the current page URL + `#thanks`
-- `_honey` — honeypot (hidden with CSS) for basic spam filtering
+### Email notifications
 
-### One-time activation (required)
+Point form notifications to **ncdwindowcleaning@gmail.com** for both forms.
 
-**FormSubmit will not deliver enquiries until the owner confirms the first submission.**
+**Via Netlify UI (reliable fallback):**
 
-1. Submit a real test enquiry from the live (or local) form once.
-2. Check **ncdwindowcleaning@gmail.com** for FormSubmit’s confirmation email.
-3. Click the confirmation link in that email.
-4. Later submissions will arrive as normal emails.
+1. Site → **Forms** → open `natecleans-enquiry` or `cindy-cleans-enquiry`
+2. **Form notifications** → **Email notification**
+3. Recipient: `ncdwindowcleaning@gmail.com` → save
 
-Until confirmation succeeds, FormSubmit may show an activation page instead of redirecting to `#thanks`.
+**Via API** (used at deploy time when `NETLIFY_AUTH_TOKEN` is available): create/update form notification hooks for both form IDs to that address. Never commit the token.
 
-## Thank-you behaviour
-
-After a successful submit, FormSubmit redirects to `index.html#thanks`. The script shows a thank-you message and hides the form.
-
-## Deploy (static hosting)
-
-Upload the contents of this folder (no build) to any static host:
-
-- **Netlify** — drag-and-drop the folder, or connect a Git repo; publish directory = site root
-- **Cloudflare Pages** — upload assets or connect Git; build command empty, output = `/`
-- **GitHub Pages** — push these files and enable Pages on the branch/folder
-
-After deploy, update the optional `canonical` / Open Graph URLs in `index.html` to your real domain, and set `_next` still works via the script (it uses the current origin).
-
-## Contact details (do not invent extras)
-
-- Phone (display): **07805 273715**
-- Tel link: `tel:+447805273715`
-- Enquiries: **ncdwindowcleaning@gmail.com**
-
-## Licence / notes
-
-Business content is for Natecleans. No secrets or API keys are stored in this repo.
-
-
-Published for Google Business Profile.
-
-## Cindy Cleans — Los Angeles page
-
-`los-angeles.html` is a separate **Cindy Cleans** US English landing page focused on **solar panel cleaning** in Los Angeles and Greater LA.
-
-- Contact is **form + email only** (no phone number on that page).
-- Form subject: `Cindy Cleans Los Angeles solar enquiry`
-- Same FormSubmit endpoint (`ncdwindowcleaning@gmail.com`) and validation script as the UK homepage.
-- No photo gallery on this page yet (USA photos to follow).
-- Live URL: https://gleaming-sherbet-4d46ee.netlify.app/los-angeles.html
+Netlify registers forms by scanning HTML on deploy — run a production deploy before expecting submissions.
 
 ## UK photo gallery
 
-The Natecleans `index.html` includes an **Our work** gallery using files in `images/` (WebP with JPG fallback). Photos are real job shots — not stock.
+Natecleans only: full portraits (`object-fit: contain`), gutter-related shots first, click-to-lightbox (Esc / backdrop closes). **No UK photos on Cindy Cleans.**
 
+## Deploy
+
+```bash
+git add -A && git commit -m "…" && git push
+netlify deploy --prod
+```
+
+Live: https://gleaming-sherbet-4d46ee.netlify.app/
+
+## Contact
+
+- Phone: **07805 273715** (`tel:+447805273715`)
+- Email: **ncdwindowcleaning@gmail.com**
+
+## Cindy Cleans
+
+Solar panel cleaning only — form + email, no phone, no UK gallery.  
+https://gleaming-sherbet-4d46ee.netlify.app/los-angeles.html
