@@ -1,6 +1,6 @@
 # Natecleans — static landing page
 
-Mobile-first marketing site for **Natecleans** (UK **gutter clearing & window cleaning**, plus fascias and solar). Plain HTML, CSS and JavaScript — no build step. Sister page: **Cindy Cleans** (Los Angeles solar panel cleaning only).
+Mobile-first marketing site for **Natecleans** (UK **window cleaning & gutter clearing**, plus fascias and solar). Plain HTML, CSS and JavaScript — no build step. Sister page: **Cindy Cleans** (Los Angeles solar panel cleaning only).
 
 ## Files
 
@@ -56,7 +56,7 @@ Netlify registers forms by scanning HTML on deploy — run a production deploy b
 
 ## UK photo gallery
 
-Natecleans only: full portraits (`object-fit: contain`), gutter-related shots first, click-to-lightbox (Esc / backdrop closes). **No UK photos on Cindy Cleans.**
+Natecleans only: full portraits (`object-fit: contain`), click-to-lightbox (Esc / backdrop closes). Core services lead with window cleaning, then gutter clearing. **No UK photos on Cindy Cleans.**
 
 ## Deploy
 

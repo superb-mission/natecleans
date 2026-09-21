@@ -1318,7 +1318,7 @@ body.lightbox-open {
 }
 
 
-/* Featured service card (gutter clearing) */
+/* Featured service cards (window cleaning + gutter clearing) */
 .card-featured {
   border: 2px solid var(--sky-400);
   background: linear-gradient(180deg, #f0f8ff 0%, #fff 55%);
@@ -1349,6 +1349,6 @@ body.lightbox-open {
 
 @media (min-width: 900px) {
   .service-grid .card-featured {
-    /* equal lead cards — sit in the first row with windows */
+    /* equal lead cards — window cleaning first, then gutters */
   }
 }
