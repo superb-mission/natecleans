@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-# Sitemap: https://your-domain.example/sitemap.xml
+# Live site: https://gleaming-sherbet-4d46ee.netlify.app
+# Pages: / (UK window cleaning), /los-angeles.html (LA solar panel cleaning)

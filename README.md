@@ -7,7 +7,8 @@ Mobile-first marketing site for **Natecleans** (UK window & exterior cleaning). 
 | File | Purpose |
 |------|---------|
 | `index.html` | Single-page site (hero, services, areas, CTA, enquiry form, footer) |
-| `styles.css` | Mobile-first styles (deep green / teal) |
+| `styles.css` | Mobile-first styles (sky blue / navy) |
+| `los-angeles.html` | US landing page — solar panel cleaning in Los Angeles / Greater LA (form-only contact, no phone) |
 | `script.js` | Client-side form validation + `#thanks` thank-you message |
 | `favicon.svg` | Simple branded favicon |
 | `robots.txt` | Allow all crawlers |
@@ -75,3 +76,13 @@ Business content is for Natecleans. No secrets or API keys are stored in this re
 
 
 Published for Google Business Profile.
+
+## Los Angeles page
+
+`los-angeles.html` is a separate US English landing page focused on **solar panel cleaning** in Los Angeles and Greater LA.
+
+- Contact is **form + email only** (no phone number on that page).
+- Form subject: `Natecleans Los Angeles solar enquiry`
+- Same FormSubmit endpoint and validation script as the UK homepage.
+- Live URL: https://gleaming-sherbet-4d46ee.netlify.app/los-angeles.html
+
