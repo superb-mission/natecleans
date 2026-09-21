@@ -775,6 +775,64 @@ a:hover {
   font-size: 0.85rem;
 }
 
+
+/* Work gallery */
+.gallery-grid {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+
+.gallery-item {
+  margin: 0;
+}
+
+.gallery-item figure {
+  margin: 0;
+  background: var(--sky-50);
+  border: 1px solid var(--grey-100);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 22rem;
+  object-fit: cover;
+  object-position: center top;
+  background: var(--navy-900);
+}
+
+.gallery-item figcaption {
+  padding: 0.85rem 1rem 1rem;
+  font-size: 0.92rem;
+  color: var(--grey-700);
+  line-height: 1.4;
+}
+
+@media (min-width: 540px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery-item img {
+    height: 20rem;
+  }
+}
+
 /* Responsive */
 @media (min-width: 540px) {
   .hero-ctas {

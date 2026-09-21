@@ -8,7 +8,8 @@ Mobile-first marketing site for **Natecleans** (UK window & exterior cleaning). 
 |------|---------|
 | `index.html` | Single-page site (hero, services, areas, CTA, enquiry form, footer) |
 | `styles.css` | Mobile-first styles (sky blue / navy) |
-| `los-angeles.html` | US landing page — solar panel cleaning in Los Angeles / Greater LA (form-only contact, no phone) |
+| `los-angeles.html` | **Cindy Cleans** US landing page — solar panel cleaning in Los Angeles / Greater LA (form-only, no phone) |
+| `images/` | Optimised UK work photos (JPG + WebP) for the Natecleans gallery |
 | `script.js` | Client-side form validation + `#thanks` thank-you message |
 | `favicon.svg` | Simple branded favicon |
 | `robots.txt` | Allow all crawlers |
@@ -77,12 +78,17 @@ Business content is for Natecleans. No secrets or API keys are stored in this re
 
 Published for Google Business Profile.
 
-## Los Angeles page
+## Cindy Cleans — Los Angeles page
 
-`los-angeles.html` is a separate US English landing page focused on **solar panel cleaning** in Los Angeles and Greater LA.
+`los-angeles.html` is a separate **Cindy Cleans** US English landing page focused on **solar panel cleaning** in Los Angeles and Greater LA.
 
 - Contact is **form + email only** (no phone number on that page).
-- Form subject: `Natecleans Los Angeles solar enquiry`
-- Same FormSubmit endpoint and validation script as the UK homepage.
+- Form subject: `Cindy Cleans Los Angeles solar enquiry`
+- Same FormSubmit endpoint (`ncdwindowcleaning@gmail.com`) and validation script as the UK homepage.
+- No photo gallery on this page yet (USA photos to follow).
 - Live URL: https://gleaming-sherbet-4d46ee.netlify.app/los-angeles.html
+
+## UK photo gallery
+
+The Natecleans `index.html` includes an **Our work** gallery using files in `images/` (WebP with JPG fallback). Photos are real job shots — not stock.
 

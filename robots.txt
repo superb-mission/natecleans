@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Live site: https://gleaming-sherbet-4d46ee.netlify.app
-# Pages: / (UK window cleaning), /los-angeles.html (LA solar panel cleaning)
+# Pages: / (Natecleans UK), /los-angeles.html (Cindy Cleans LA solar)
