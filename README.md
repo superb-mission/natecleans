@@ -72,3 +72,6 @@ After deploy, update the optional `canonical` / Open Graph URLs in `index.html` 
 ## Licence / notes
 
 Business content is for Natecleans. No secrets or API keys are stored in this repo.
+
+
+Published for Google Business Profile.
